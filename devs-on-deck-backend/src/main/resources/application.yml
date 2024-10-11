@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: devs-on-deck-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/devs-on-deck
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
