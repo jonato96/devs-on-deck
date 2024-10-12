@@ -6,6 +6,7 @@ import com.artic.dev.repository.StateRepository;
 import com.artic.dev.service.StateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class StateServiceImpl implements StateService {
     private final StateRepository stateRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public List<StateResponseDto> findAll() {
         List<State> states =  this.stateRepository.findAll();
         return states.stream().map(state -> StateResponseDto.builder()

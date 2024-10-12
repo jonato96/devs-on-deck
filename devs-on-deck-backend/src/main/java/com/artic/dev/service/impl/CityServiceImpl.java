@@ -6,6 +6,7 @@ import com.artic.dev.repository.CityRepository;
 import com.artic.dev.service.CityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class CityServiceImpl implements CityService {
     private final CityRepository cityRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public List<CityResponseDto> findAllBy(Long stateId) {
         List<City> cities = this.cityRepository.findAllByStateId(stateId);
         return cities.stream().map(city -> CityResponseDto.builder()
