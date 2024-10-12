@@ -21,7 +21,7 @@ public class State {
     @Column
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "state")
     private Set<City> city;
 
 }

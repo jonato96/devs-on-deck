@@ -1,9 +1,6 @@
 package com.artic.dev.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -16,5 +13,12 @@ public class City {
 
     @Column
     private String name;
+
+    @Column(name = "state_id")
+    private Long stateId;
+
+    @ManyToOne
+    @JoinColumn(name = "state_id", insertable = false, updatable = false)
+    private State state;
 
 }
