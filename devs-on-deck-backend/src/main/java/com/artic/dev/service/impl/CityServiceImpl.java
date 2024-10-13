@@ -19,7 +19,7 @@ public class CityServiceImpl implements CityService {
     @Override
     @Transactional(readOnly = true)
     public List<CityResponseDto> findAllBy(Long stateId) {
-        List<City> cities = this.cityRepository.findAllByStateId(stateId);
+        List<City> cities = cityRepository.findAllByStateId(stateId);
         return cities.stream().map(city -> CityResponseDto.builder()
                 .id(city.getId())
                 .name(city.getName())

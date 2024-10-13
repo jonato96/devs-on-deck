@@ -6,13 +6,19 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
 @Entity
 @Table(name = "state")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class State {
 
     @Id

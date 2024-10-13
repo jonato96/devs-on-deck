@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class StateResponseDto {
-    Long id;
-    String name;
+public class AuthResponseDto {
+    String token;
 }

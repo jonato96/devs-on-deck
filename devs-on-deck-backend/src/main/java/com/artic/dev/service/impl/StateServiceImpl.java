@@ -19,7 +19,7 @@ public class StateServiceImpl implements StateService {
     @Override
     @Transactional(readOnly = true)
     public List<StateResponseDto> findAll() {
-        List<State> states =  this.stateRepository.findAll();
+        List<State> states = stateRepository.findAll();
         return states.stream().map(state -> StateResponseDto.builder()
                 .id(state.getId())
                 .name(state.getName())

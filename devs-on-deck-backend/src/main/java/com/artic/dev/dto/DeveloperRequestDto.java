@@ -9,7 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class StateResponseDto {
-    Long id;
-    String name;
+public class DeveloperRequestDto {
+        String firstName;
+        String lastName;
+        String email;
+        String address;
+        Long cityId;
+        String password;
 }

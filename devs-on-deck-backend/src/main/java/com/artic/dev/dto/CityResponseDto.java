@@ -1,7 +1,15 @@
 package com.artic.dev.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
 @Builder
-public record CityResponseDto(Long id, String name) {
+@NoArgsConstructor
+@AllArgsConstructor
+public class CityResponseDto {
+    Long id;
+    String name;
 }
