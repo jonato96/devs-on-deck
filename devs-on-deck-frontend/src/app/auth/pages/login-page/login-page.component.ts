@@ -1,5 +1,5 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
-import {LoginTitle} from "../../interfaces/login-title.interface";
+import {LoginTitle} from "../../../interfaces/login-title.interface";
 import {Router} from "@angular/router";
 
 @Component({

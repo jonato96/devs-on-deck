@@ -13,6 +13,7 @@ import {CheckboxModule} from "primeng/checkbox";
 import {ButtonDirective} from "primeng/button";
 import {Ripple} from "primeng/ripple";
 import {InputTextModule} from "primeng/inputtext";
+import {DropdownModule} from "primeng/dropdown";
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {InputTextModule} from "primeng/inputtext";
     CheckboxModule,
     ButtonDirective,
     Ripple,
-    InputTextModule
+    InputTextModule,
+    DropdownModule
   ]
 })
 export class AuthModule { }

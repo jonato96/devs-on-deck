@@ -1,1 +1,80 @@
-<p>register-dev-page works!</p>
+<div class="align-items-center flex justify-content-center lg:px-8 md:px-6 px-4 py-8">
+
+  <div class="surface-ground p-4 shadow-4 border-round w-full lg:w-9">
+
+    <div class="grid mb-2">
+
+      <div class="col-12">
+        <div class="text-900 text-5xl text-center font-medium mb-3">Developer Sign Up</div>
+      </div>
+
+      <div class="col-12 lg:col-6">
+        <div class="lg:flex lg:gap-3">
+          <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 100px">First Name:</label>
+          <input pInputText class="p-inputtext-sm w-full">
+        </div>
+      </div>
+      <div class="col-12 lg:col-6">
+        <div class="lg:flex lg:gap-3">
+          <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 100px">Last Name:</label>
+          <input pInputText class="p-inputtext-sm w-full">
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="lg:flex lg:gap-3">
+          <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 100px">Email:</label>
+          <input pInputText class="p-inputtext-sm w-full">
+        </div>
+      </div>
+      <div class="col-12 lg:col-6">
+        <div class="lg:flex lg:gap-3">
+          <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 100px">State:</label>
+          <p-dropdown
+            class="w-full p-fluid"
+            [options]="states()"
+            (onChange)="updateCities($event)"
+            optionLabel="name"
+            placeholder="Select a State" />
+        </div>
+      </div>
+      <div class="col-12 lg:col-6">
+        <div class="lg:flex lg:gap-3">
+          <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 100px">City:</label>
+          <p-dropdown
+            class="w-full p-fluid"
+            [options]="cities()"
+            optionLabel="name"
+            placeholder="Select a City" />
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="lg:flex lg:gap-3">
+          <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 100px">Address:</label>
+          <input pInputText class="p-inputtext-sm w-full">
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="lg:flex lg:gap-3">
+          <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 100px">Password:</label>
+          <input pInputText type="password" class="p-inputtext-sm w-full">
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="lg:flex lg:gap-3">
+          <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 100px">Confirm:</label>
+          <input pInputText type="password" class="p-inputtext-sm w-full">
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-content-center lg:justify-content-end mb-2">
+      <button pButton>Register</button>
+    </div>
+
+    <div class="text-center">
+      <a class="font-medium ml-2 text-blue-500 cursor-pointer underline" routerLink="../org">Need to Sign Up an Organization?</a>
+    </div>
+
+  </div>
+
+</div>
