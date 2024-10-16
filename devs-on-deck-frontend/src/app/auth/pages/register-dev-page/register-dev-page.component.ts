@@ -24,8 +24,8 @@ export class RegisterDevPageComponent implements OnInit {
     email: this.fb.control('', [Validators.required]),
     address: this.fb.control('', [Validators.required]),
     cityId: this.fb.control(0, [Validators.required]),
-    confirmPassword: this.fb.control('', [Validators.required]),
     password: this.fb.control('', [Validators.required]),
+    confirmPassword: this.fb.control('', [Validators.required]),
   });
 
   ngOnInit() {
@@ -36,6 +36,11 @@ export class RegisterDevPageComponent implements OnInit {
     const selectedState = state.value as State;
     this.devService.findCitiesByState(selectedState.id)
       .subscribe(cities => this.cities.set(cities));
+  }
+
+  onRegister() {
+    const registerDeveloperRequest = this.registerDeveloperForm.value as unknown as DeveloperRegister;
+    console.log(registerDeveloperRequest);
   }
 
 }

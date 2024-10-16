@@ -5,7 +5,7 @@ export interface DeveloperRegister {
   lastName: FormControl<string>;
   email: FormControl<string>;
   address: FormControl<string>;
-  cityId: FormControl<Number>;
+  cityId: FormControl<number>;
   password: FormControl<string>;
   confirmPassword: FormControl<string>;
 }

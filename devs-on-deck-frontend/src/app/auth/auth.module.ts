@@ -14,6 +14,7 @@ import {ButtonDirective} from "primeng/button";
 import {Ripple} from "primeng/ripple";
 import {InputTextModule} from "primeng/inputtext";
 import {DropdownModule} from "primeng/dropdown";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -24,15 +25,16 @@ import {DropdownModule} from "primeng/dropdown";
     AuthRegisterLayoutComponent,
     AuthLoginLayoutComponent
   ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    SharedModule,
-    CheckboxModule,
-    ButtonDirective,
-    Ripple,
-    InputTextModule,
-    DropdownModule
-  ]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        SharedModule,
+        CheckboxModule,
+        ButtonDirective,
+        Ripple,
+        InputTextModule,
+        DropdownModule,
+        ReactiveFormsModule
+    ]
 })
 export class AuthModule { }
