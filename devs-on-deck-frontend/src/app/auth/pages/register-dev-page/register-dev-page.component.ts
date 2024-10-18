@@ -1,9 +1,12 @@
-import {Component, inject, OnInit, signal} from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from "@angular/forms";
+import { DropdownChangeEvent } from "primeng/dropdown";
+
 import { DeveloperRegister } from "../../../interfaces/register.interface";
-import {DevsOnDeckService} from "../../../services/devs-on-deck.service";
-import {City, State} from "../../../interfaces/devs-on-deck.interface";
-import {DropdownChangeEvent} from "primeng/dropdown";
+import { City, DeveloperRequest, State} from "../../../interfaces/devs-on-deck.interface";
+
+import { DevsOnDeckService } from "../../../services/devs-on-deck.service";
+
 
 @Component({
   selector: 'app-register-dev-page',
@@ -21,7 +24,7 @@ export class RegisterDevPageComponent implements OnInit {
   public registerDeveloperForm = this.fb.group<DeveloperRegister>({
     firstName: this.fb.control('', [Validators.required]),
     lastName: this.fb.control('', [Validators.required]),
-    email: this.fb.control('', [Validators.required]),
+    email: this.fb.control('', [Validators.required, Validators.email]),
     address: this.fb.control('', [Validators.required]),
     cityId: this.fb.control(0, [Validators.required]),
     password: this.fb.control('', [Validators.required]),
@@ -38,8 +41,8 @@ export class RegisterDevPageComponent implements OnInit {
       .subscribe(cities => this.cities.set(cities));
   }
 
-  onRegister() {
-    const registerDeveloperRequest = this.registerDeveloperForm.value as unknown as DeveloperRegister;
+  onRegister(): void {
+    const registerDeveloperRequest = this.registerDeveloperForm.value as unknown as DeveloperRequest;
     console.log(registerDeveloperRequest);
   }
 

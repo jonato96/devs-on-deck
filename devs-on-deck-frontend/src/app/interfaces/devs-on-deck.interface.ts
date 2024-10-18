@@ -7,3 +7,16 @@ export interface City {
   id: number;
   name: string;
 }
+
+export interface DeveloperRequest {
+  firstName: string;
+  lastName: string;
+  email: string;
+  address: string;
+  cityId: string;
+  password: string;
+}
+
+export interface TokenResponse {
+  token: string;
+}

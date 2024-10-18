@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import {City, State} from "../interfaces/devs-on-deck.interface";
+import {City, DeveloperRequest, State, TokenResponse} from "../interfaces/devs-on-deck.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ export class DevsOnDeckService {
 
   private readonly baseUrl: string = 'http://localhost:8080/devs';
   private readonly stateController: string = 'state';
+  private readonly authController: string = 'auth';
 
   private http = inject(HttpClient);
 
@@ -23,6 +24,14 @@ export class DevsOnDeckService {
 
   findCitiesByState(stateId: number): Observable<City[]> {
     return this.http.get<City[]>(`${this.baseUrl}/${this.stateController}/${stateId}/cities`);
+  }
+
+  /**
+   * Auth Controller
+   */
+
+  registerDeveloper(request: DeveloperRequest): Observable<TokenResponse> {
+    return this.http.post<TokenResponse>(`${this.baseUrl}/${this.authController}/dev`, request);
   }
 
 
