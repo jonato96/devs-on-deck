@@ -24,6 +24,11 @@ const routes: Routes = [
       { path: 'org', component: RegisterOrgPageComponent },
       { path: '**', redirectTo: 'dev' },
     ]
+  },
+  {
+    path: '',
+    pathMatch: 'prefix',
+    redirectTo: 'login',
   }
 ];
 
