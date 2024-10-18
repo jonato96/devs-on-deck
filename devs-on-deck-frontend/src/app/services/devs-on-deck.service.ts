@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import {City, DeveloperRequest, State, TokenResponse} from "../interfaces/devs-on-deck.interface";
+import {City, DeveloperRequest, OrganizationRequest, State, TokenResponse} from "../interfaces/devs-on-deck.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +32,10 @@ export class DevsOnDeckService {
 
   registerDeveloper(request: DeveloperRequest): Observable<TokenResponse> {
     return this.http.post<TokenResponse>(`${this.baseUrl}/${this.authController}/dev`, request);
+  }
+
+  registerOrganization(request: OrganizationRequest): Observable<TokenResponse> {
+    return this.http.post<TokenResponse>(`${this.baseUrl}/${this.authController}/org`, request);
   }
 
 

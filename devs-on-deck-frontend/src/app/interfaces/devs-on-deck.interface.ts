@@ -17,6 +17,14 @@ export interface DeveloperRequest {
   password: string;
 }
 
+export interface OrganizationRequest {
+  orgName: string;
+  email: string;
+  address: string;
+  cityId: string;
+  password: string;
+}
+
 export interface TokenResponse {
   token: string;
 }

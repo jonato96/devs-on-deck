@@ -1,1 +1,80 @@
-<p>register-org-page works!</p>
+<div class="align-items-center flex justify-content-center lg:px-8 md:px-6 px-4 py-8">
+
+  <div class="surface-ground p-4 shadow-4 border-round w-full lg:w-9">
+
+    <form [formGroup]="registerOrganizationForm" (ngSubmit)="onRegister()">
+
+      <div class="grid mb-2">
+
+        <div class="col-12">
+          <div class="text-900 text-5xl text-center font-medium mb-3">Organization Sign Up</div>
+        </div>
+
+        <div class="col-12">
+          <div class="lg:flex lg:gap-3">
+            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Org Name:</label>
+            <input pInputText class="p-inputtext-sm w-full" formControlName="orgName">
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="lg:flex lg:gap-3">
+            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Contact Email:</label>
+            <input pInputText class="p-inputtext-sm w-full" formControlName="email">
+          </div>
+        </div>
+        <div class="col-12 lg:col-6">
+          <div class="lg:flex lg:gap-3">
+            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Org State:</label>
+            <p-dropdown
+              class="w-full p-fluid"
+              [options]="states()"
+              (onChange)="updateCities($event)"
+              optionLabel="name"
+              placeholder="Select a State" />
+          </div>
+        </div>
+        <div class="col-12 lg:col-6">
+          <div class="lg:flex lg:gap-3">
+            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Org City:</label>
+            <p-dropdown
+              class="w-full p-fluid"
+              formControlName="cityId"
+              [options]="cities()"
+              optionLabel="name"
+              optionValue="id"
+              placeholder="Select a City" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="lg:flex lg:gap-3">
+            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Org Address:</label>
+            <input pInputText class="p-inputtext-sm w-full" formControlName="address">
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="lg:flex lg:gap-3">
+            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Password:</label>
+            <input pInputText type="password" class="p-inputtext-sm w-full" formControlName="password">
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="lg:flex lg:gap-3">
+            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Confirm:</label>
+            <input pInputText type="password" class="p-inputtext-sm w-full" formControlName="confirmPassword">
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-content-center lg:justify-content-end mb-2">
+        <button pButton type="submit">Register</button>
+      </div>
+
+    </form>
+
+    <div class="text-center">
+      <a class="font-medium ml-2 text-blue-500 cursor-pointer underline" routerLink="../dev">Need to Sign Up a Developer?</a>
+    </div>
+
+  </div>
+
+</div>
