@@ -1,0 +1,7 @@
+<div class="lg:flex lg:gap-3">
+  <label class="flex lg:justify-content-end col-fixed" [ngStyle]="{'width.px': labelSize()}">{{label()}}</label>
+  <div class="flex flex-column w-full">
+    <ng-content></ng-content>
+    <small class="p-error pl-1 pt-1"></small>
+  </div>
+</div>
