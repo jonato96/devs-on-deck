@@ -11,17 +11,17 @@
         </div>
 
         <div class="col-12 lg:col-6">
-          <app-custom-control label="First Name:">
+          <app-custom-control label="First Name:" [control]="registerDeveloperForm.controls['firstName']">
             <input pInputText class="p-inputtext-sm" formControlName="firstName">
           </app-custom-control>
         </div>
         <div class="col-12 lg:col-6">
-          <app-custom-control label="Last Name:">
+          <app-custom-control label="Last Name:" [control]="registerDeveloperForm.controls['lastName']">
             <input pInputText class="p-inputtext-sm" formControlName="lastName">
           </app-custom-control>
         </div>
         <div class="col-12">
-          <app-custom-control label="Email:">
+          <app-custom-control label="Email:" [control]="registerDeveloperForm.controls['email']">
             <input pInputText class="p-inputtext-sm" formControlName="email">
           </app-custom-control>
         </div>
@@ -36,7 +36,7 @@
           </app-custom-control>
         </div>
         <div class="col-12 lg:col-6">
-          <app-custom-control label="City:">
+          <app-custom-control label="City:" [control]="registerDeveloperForm.controls['cityId']">
             <p-dropdown
               class="p-inputtext-sm"
               formControlName="cityId"
@@ -47,17 +47,17 @@
           </app-custom-control>
         </div>
         <div class="col-12">
-          <app-custom-control label="Address:">
+          <app-custom-control label="Address:" [control]="registerDeveloperForm.controls['address']">
             <input pInputText class="p-inputtext-sm" formControlName="address">
           </app-custom-control>
         </div>
         <div class="col-12">
-          <app-custom-control label="Password:">
+          <app-custom-control label="Password:" [control]="registerDeveloperForm.controls['password']">
             <input pInputText type="password" class="p-inputtext-sm" formControlName="password">
           </app-custom-control>
         </div>
         <div class="col-12">
-          <app-custom-control label="Confirm:">
+          <app-custom-control label="Confirm:" [control]="registerDeveloperForm.controls['confirmPassword']">
             <input pInputText type="password" class="p-inputtext-sm" formControlName="confirmPassword">
           </app-custom-control>
         </div>

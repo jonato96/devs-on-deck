@@ -1,4 +1,6 @@
 import { Component, input } from '@angular/core';
+import { FormControl } from "@angular/forms";
+import { getErrorMessage } from "../../../utils/form-utils";
 
 @Component({
   selector: 'app-custom-control',
@@ -7,8 +9,12 @@ import { Component, input } from '@angular/core';
 })
 export class CustomControlComponent {
 
+  control = input<FormControl>();
   label = input.required<string>();
-  labelSize = input<number>(120);
-  errorMsg = input<string>("");
+  labelSize = input<number>(125);
+
+  public getError(): string {
+    return getErrorMessage(this.control()?.errors);
+  }
 
 }

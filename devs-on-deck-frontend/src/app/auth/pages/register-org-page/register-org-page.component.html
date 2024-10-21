@@ -4,64 +4,57 @@
 
     <form [formGroup]="registerOrganizationForm" (ngSubmit)="onRegister()">
 
-      <div class="grid mb-2">
+      <div class="p-fluid grid mb-2">
 
         <div class="col-12">
           <div class="text-900 text-5xl text-center font-medium mb-3">Organization Sign Up</div>
         </div>
 
         <div class="col-12">
-          <div class="lg:flex lg:gap-3">
-            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Org Name:</label>
-            <input pInputText class="p-inputtext-sm w-full" formControlName="orgName">
-          </div>
+          <app-custom-control label="Org Name:" [control]="registerOrganizationForm.controls['orgName']">
+            <input pInputText class="p-inputtext-sm" formControlName="orgName">
+          </app-custom-control>
         </div>
         <div class="col-12">
-          <div class="lg:flex lg:gap-3">
-            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Contact Email:</label>
-            <input pInputText class="p-inputtext-sm w-full" formControlName="email">
-          </div>
+          <app-custom-control label="Contact Email:" [control]="registerOrganizationForm.controls['email']">
+            <input pInputText class="p-inputtext-sm" formControlName="email">
+          </app-custom-control>
         </div>
         <div class="col-12 lg:col-6">
-          <div class="lg:flex lg:gap-3">
-            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Org State:</label>
+          <app-custom-control label="Org State:">
             <p-dropdown
-              class="w-full p-fluid"
+              class="p-inputtext-sm"
               [options]="states()"
               (onChange)="updateCities($event)"
               optionLabel="name"
               placeholder="Select a State" />
-          </div>
+          </app-custom-control>
         </div>
         <div class="col-12 lg:col-6">
-          <div class="lg:flex lg:gap-3">
-            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Org City:</label>
+          <app-custom-control label="Org City:" [control]="registerOrganizationForm.controls['cityId']">
             <p-dropdown
-              class="w-full p-fluid"
+              class="p-inputtext-sm"
               formControlName="cityId"
               [options]="cities()"
               optionLabel="name"
               optionValue="id"
               placeholder="Select a City" />
-          </div>
+          </app-custom-control>
         </div>
         <div class="col-12">
-          <div class="lg:flex lg:gap-3">
-            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Org Address:</label>
-            <input pInputText class="p-inputtext-sm w-full" formControlName="address">
-          </div>
+          <app-custom-control label="Org Address:" [control]="registerOrganizationForm.controls['address']">
+            <input pInputText class="p-inputtext-sm" formControlName="address">
+          </app-custom-control>
         </div>
         <div class="col-12">
-          <div class="lg:flex lg:gap-3">
-            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Password:</label>
-            <input pInputText type="password" class="p-inputtext-sm w-full" formControlName="password">
-          </div>
+          <app-custom-control label="Password:" [control]="registerOrganizationForm.controls['password']">
+            <input pInputText type="password" class="p-inputtext-sm" formControlName="password">
+          </app-custom-control>
         </div>
         <div class="col-12">
-          <div class="lg:flex lg:gap-3">
-            <label class="flex align-items-center lg:justify-content-end col-fixed p-0" style="width: 120px">Confirm:</label>
-            <input pInputText type="password" class="p-inputtext-sm w-full" formControlName="confirmPassword">
-          </div>
+          <app-custom-control label="Confirm:" [control]="registerOrganizationForm.controls['confirmPassword']">
+            <input pInputText type="password" class="p-inputtext-sm" formControlName="confirmPassword">
+          </app-custom-control>
         </div>
       </div>
 
