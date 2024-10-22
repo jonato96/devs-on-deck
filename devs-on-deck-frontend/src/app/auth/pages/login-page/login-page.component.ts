@@ -1,6 +1,8 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
 import {LoginTitle} from "../../../interfaces/login-title.interface";
 import {Router} from "@angular/router";
+import {NonNullableFormBuilder, Validators} from "@angular/forms";
+import {Login} from "../../../interfaces/register.interface";
 
 @Component({
   selector: 'app-login-page',
@@ -10,6 +12,12 @@ import {Router} from "@angular/router";
 export class LoginPageComponent implements OnInit {
 
   private readonly router = inject(Router);
+  private readonly fb = inject(NonNullableFormBuilder);
+
+  loginForm = this.fb.group<Login>({
+    email: this.fb.control('', [Validators.required]),
+    password: this.fb.control('', [Validators.required]),
+  })
 
   developer: LoginTitle = {
     title: 'Welcome Back, Developer!',

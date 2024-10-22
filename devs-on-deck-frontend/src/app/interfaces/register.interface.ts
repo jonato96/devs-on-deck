@@ -18,3 +18,8 @@ export interface OrganizationRegister {
   password: FormControl<string>;
   confirmPassword: FormControl<string>;
 }
+
+export interface Login {
+  email: FormControl<string>;
+  password: FormControl<string>;
+}
