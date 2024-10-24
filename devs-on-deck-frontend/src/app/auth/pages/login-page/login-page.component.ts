@@ -1,8 +1,10 @@
-import {Component, inject, OnInit, signal} from '@angular/core';
-import {LoginTitle} from "../../../interfaces/login-title.interface";
-import {Router} from "@angular/router";
-import {NonNullableFormBuilder, Validators} from "@angular/forms";
-import {Login} from "../../../interfaces/register.interface";
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { NonNullableFormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { firstValueFrom } from "rxjs";
+import { LoginForm} from "@/auth/models/form.model";
+import { LoginTitle } from "@/auth/models/login-title.model";
+import { AuthService } from "@/auth/services/auth.service";
 
 @Component({
   selector: 'app-login-page',
@@ -11,10 +13,11 @@ import {Login} from "../../../interfaces/register.interface";
 })
 export class LoginPageComponent implements OnInit {
 
+  private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
   private readonly fb = inject(NonNullableFormBuilder);
 
-  loginForm = this.fb.group<Login>({
+  loginForm = this.fb.group<LoginForm>({
     email: this.fb.control('', [Validators.required]),
     password: this.fb.control('', [Validators.required]),
   })
@@ -37,6 +40,18 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit() {
    if (this.router.url.endsWith('/org')) this.actualUser.set(this.organization);
+  }
+
+  async onSubmit() {
+    if (this.loginForm.valid) {
+      try {
+        await firstValueFrom(this.authService.login(this.loginForm.getRawValue()));
+      } catch (error) {
+        console.error(error);
+      }
+      this.loginForm.reset();
+    }
+    this.loginForm.markAllAsTouched()
   }
 
 }

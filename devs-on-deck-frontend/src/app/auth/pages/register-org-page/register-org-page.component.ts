@@ -2,7 +2,7 @@ import {Component, inject, OnInit, signal} from '@angular/core';
 import {NonNullableFormBuilder, Validators} from "@angular/forms";
 import {DevsOnDeckService} from "../../../services/devs-on-deck.service";
 import {City, DeveloperRequest, OrganizationRequest, State} from "../../../interfaces/devs-on-deck.interface";
-import {DeveloperRegister, OrganizationRegister} from "../../../interfaces/register.interface";
+import {DeveloperRegister, OrganizationRegister} from "../../models/form.model";
 import {DropdownChangeEvent} from "primeng/dropdown";
 
 @Component({

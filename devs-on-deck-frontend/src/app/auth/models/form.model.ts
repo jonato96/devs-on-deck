@@ -19,7 +19,7 @@ export interface OrganizationRegister {
   confirmPassword: FormControl<string>;
 }
 
-export interface Login {
+export interface LoginForm {
   email: FormControl<string>;
   password: FormControl<string>;
 }

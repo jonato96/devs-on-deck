@@ -1,12 +1,10 @@
-export interface State {
+export interface Catalogue {
   id: number;
   name: string;
 }
+export interface State extends Catalogue {}
 
-export interface City {
-  id: number;
-  name: string;
-}
+export interface City extends Catalogue {}
 
 export interface DeveloperRequest {
   firstName: string;

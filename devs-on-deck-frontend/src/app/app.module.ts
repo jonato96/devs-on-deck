@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
+import { provideHttpClient, withInterceptors } from "@angular/common/http";
+import { authInterceptor } from "./auth/interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http"
   ],
   providers: [
     provideHttpClient(
-      withInterceptorsFromDi()
+      withInterceptors([authInterceptor])
     )
   ],
   bootstrap: [AppComponent]
