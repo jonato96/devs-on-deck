@@ -13,7 +13,7 @@ export interface AuthData {
 interface RegisterContainerData {
   email: string;
   address: string;
-  cityId: string;
+  cityId: number;
   password: string;
 }
 

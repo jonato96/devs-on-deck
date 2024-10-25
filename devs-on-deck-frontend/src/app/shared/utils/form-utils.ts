@@ -3,6 +3,7 @@ import { ValidationErrors } from "@angular/forms";
 const ERRORS_DEFAULT: ValidationErrors = {
   required: 'This field is required',
   email: 'Email does not match the format',
+  notEqual: 'Password does not match'
 };
 
 export const getErrorMessage = (errors: ValidationErrors | null | undefined): string => {

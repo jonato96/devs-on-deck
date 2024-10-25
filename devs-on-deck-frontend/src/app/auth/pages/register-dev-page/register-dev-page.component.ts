@@ -2,10 +2,12 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from "@angular/forms";
 import { DropdownChangeEvent } from "primeng/dropdown";
 
-import { DeveloperRegister } from "../../models/form.model";
-import { City, DeveloperRequest, State} from "../../../interfaces/devs-on-deck.interface";
+import { DeveloperRegister } from "@/auth/models";
+import { City, State } from "@/interfaces/devs-on-deck.interface";
 
-import { DevsOnDeckService } from "../../../services/devs-on-deck.service";
+import { DevsOnDeckService } from "@/services/devs-on-deck.service";
+import { DeveloperData } from "@/auth/models";
+import {ValidatorsService} from "@/auth/services/validators.service";
 
 
 @Component({
@@ -17,6 +19,7 @@ export class RegisterDevPageComponent implements OnInit {
 
   private readonly fb = inject(NonNullableFormBuilder);
   private readonly devService = inject(DevsOnDeckService);
+  private readonly validatorService = inject(ValidatorsService);
 
   public states = signal<State[]>([]);
   public cities = signal<City[]>([]);
@@ -29,7 +32,13 @@ export class RegisterDevPageComponent implements OnInit {
     cityId: this.fb.control(0, [Validators.required]),
     password: this.fb.control('', [Validators.required]),
     confirmPassword: this.fb.control('', [Validators.required]),
-  });
+  },
+  {
+    validators: [
+      this.validatorService.isFieldOneEqualsFieldTwo('password','confirmPassword')
+    ]
+  }
+  );
 
   ngOnInit() {
     this.devService.findCountries().subscribe(states => this.states.set(states));
@@ -42,8 +51,11 @@ export class RegisterDevPageComponent implements OnInit {
   }
 
   onRegister(): void {
-    const registerDeveloperRequest = this.registerDeveloperForm.value as unknown as DeveloperRequest;
-    console.log(registerDeveloperRequest);
+    if (this.registerDeveloperForm.valid) {
+      const registerDeveloperRequest: DeveloperData = this.registerDeveloperForm.getRawValue();
+      console.log(registerDeveloperRequest);
+    }
+    this.registerDeveloperForm.markAllAsTouched();
   }
 
 }

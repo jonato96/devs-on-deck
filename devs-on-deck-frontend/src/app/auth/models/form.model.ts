@@ -1,8 +1,6 @@
 import { FormControl } from "@angular/forms";
 
-export interface DeveloperRegister {
-  firstName: FormControl<string>;
-  lastName: FormControl<string>;
+export interface UserContainer {
   email: FormControl<string>;
   address: FormControl<string>;
   cityId: FormControl<number>;
@@ -10,13 +8,13 @@ export interface DeveloperRegister {
   confirmPassword: FormControl<string>;
 }
 
-export interface OrganizationRegister {
+export interface DeveloperRegister extends UserContainer {
+  firstName: FormControl<string>;
+  lastName: FormControl<string>;
+}
+
+export interface OrganizationRegister extends UserContainer {
   orgName: FormControl<string>;
-  email: FormControl<string>;
-  address: FormControl<string>;
-  cityId: FormControl<number>;
-  password: FormControl<string>;
-  confirmPassword: FormControl<string>;
 }
 
 export interface LoginForm {
