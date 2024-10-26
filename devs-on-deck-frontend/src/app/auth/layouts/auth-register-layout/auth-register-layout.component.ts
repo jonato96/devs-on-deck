@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ActionLink} from "../../../shared/interfaces/action-link.interface";
+import { ActionLink } from "@/shared/interfaces/action-link.interface";
 
 @Component({
   selector: 'app-auth-register-layout',

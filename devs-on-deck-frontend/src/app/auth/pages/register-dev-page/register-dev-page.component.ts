@@ -2,12 +2,10 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from "@angular/forms";
 import { DropdownChangeEvent } from "primeng/dropdown";
 
-import { DeveloperRegister } from "@/auth/models";
-import { City, State } from "@/interfaces/devs-on-deck.interface";
+import { City, DeveloperData, DeveloperRegister, State } from "@/auth/models";
 
-import { DevsOnDeckService } from "@/services/devs-on-deck.service";
-import { DeveloperData } from "@/auth/models";
-import {ValidatorsService} from "@/auth/services/validators.service";
+import { ValidatorsService } from "@/auth/services/validators.service";
+import { CatalogueService } from "@/auth/services/catalogue.service";
 
 
 @Component({
@@ -18,7 +16,7 @@ import {ValidatorsService} from "@/auth/services/validators.service";
 export class RegisterDevPageComponent implements OnInit {
 
   private readonly fb = inject(NonNullableFormBuilder);
-  private readonly devService = inject(DevsOnDeckService);
+  private readonly catalogueService = inject(CatalogueService);
   private readonly validatorService = inject(ValidatorsService);
 
   public states = signal<State[]>([]);
@@ -41,12 +39,12 @@ export class RegisterDevPageComponent implements OnInit {
   );
 
   ngOnInit() {
-    this.devService.findCountries().subscribe(states => this.states.set(states));
+    this.catalogueService.findCountries().subscribe(states => this.states.set(states));
   }
 
   public updateCities(state: DropdownChangeEvent) {
     const selectedState = state.value as State;
-    this.devService.findCitiesByState(selectedState.id)
+    this.catalogueService.findCitiesByState(selectedState.id)
       .subscribe(cities => this.cities.set(cities));
   }
 

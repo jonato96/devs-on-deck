@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { FormControl } from "@angular/forms";
 
-import { getErrorMessage } from "../../../utils/form-utils";
+import { getErrorMessage } from "@/shared/utils/form-utils";
 
 
 @Component({
