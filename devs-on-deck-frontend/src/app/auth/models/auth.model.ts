@@ -25,3 +25,9 @@ export interface DeveloperData extends RegisterContainerData {
 export interface OrganizationData extends RegisterContainerData {
   orgName: string;
 }
+
+export interface ApiResponse {
+  code: string;
+  info: string;
+  data: any;
+}

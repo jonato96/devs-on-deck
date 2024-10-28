@@ -1,8 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { map, Observable } from "rxjs";
 
-import { Observable } from "rxjs";
-import { City, State } from "@/auth/models/catalogue.model";
+import { ApiResponse, City, State } from "@/auth/models";
+import { cityAdapter, stateAdapter } from "@/auth/adapters/auth.adapter";
 
 
 @Injectable({
@@ -20,10 +21,14 @@ export class CatalogueService {
    */
 
   findCountries(): Observable<State[]> {
-    return this.http.get<State[]>(`${this.baseUrl}/${this.stateController}`);
+    return this.http.get<ApiResponse>(`${this.baseUrl}/${this.stateController}`).pipe(
+      map(stateAdapter)
+    );
   }
 
   findCitiesByState(stateId: number): Observable<City[]> {
-    return this.http.get<City[]>(`${this.baseUrl}/${this.stateController}/${stateId}/cities`);
+    return this.http.get<ApiResponse>(`${this.baseUrl}/${this.stateController}/${stateId}/cities`).pipe(
+      map(cityAdapter)
+    );
   }
 }
