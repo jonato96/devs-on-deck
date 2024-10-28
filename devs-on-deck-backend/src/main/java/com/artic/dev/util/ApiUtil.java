@@ -1,5 +1,6 @@
-package com.artic.dev.model;
+package com.artic.dev.util;
 
+import com.artic.dev.model.ApiGenericResponse;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.function.ThrowingSupplier;
@@ -7,7 +8,7 @@ import org.springframework.util.function.ThrowingSupplier;
 public class ApiUtil {
 
     public static <T> ResponseEntity<ApiGenericResponse<T>> response(ThrowingSupplier<T> supplier) {
-        ResponseEntity<ApiGenericResponse<T>> response = null;
+        ResponseEntity<ApiGenericResponse<T>> response;
         try {
             response = new ResponseEntity<>(
                     ApiGenericResponse.<T>builder().code("Successful").data(supplier.get()).build(),

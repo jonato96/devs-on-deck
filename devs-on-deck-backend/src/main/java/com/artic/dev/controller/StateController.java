@@ -3,7 +3,7 @@ package com.artic.dev.controller;
 import com.artic.dev.dto.CityResponseDto;
 import com.artic.dev.dto.StateResponseDto;
 import com.artic.dev.model.ApiGenericResponse;
-import com.artic.dev.model.ApiUtil;
+import com.artic.dev.util.ApiUtil;
 import com.artic.dev.service.CityService;
 import com.artic.dev.service.StateService;
 import lombok.RequiredArgsConstructor;
