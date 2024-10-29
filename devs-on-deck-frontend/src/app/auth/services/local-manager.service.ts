@@ -9,15 +9,15 @@ export enum LocalKeys {
 })
 export class LocalManagerService {
 
-  static getElement(key: LocalKeys): string | null {
+  getElement(key: LocalKeys): string | null {
     return localStorage.getItem(key);
   }
 
-  static setElement(key: LocalKeys, value: string): void {
+  setElement(key: LocalKeys, value: string): void {
     localStorage.setItem(key, value);
   }
 
-  static clearStorage(): void {
+  clearStorage(): void {
     localStorage.clear();
   }
 
