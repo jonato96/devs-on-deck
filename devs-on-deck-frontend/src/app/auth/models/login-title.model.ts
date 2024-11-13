@@ -3,4 +3,5 @@ export interface LoginTitle {
   subtitle: string;
   oppositeUser: string;
   oppositeUrl: string;
+  redirectUrl: string;
 }

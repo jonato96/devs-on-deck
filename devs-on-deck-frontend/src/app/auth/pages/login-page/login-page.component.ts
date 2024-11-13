@@ -1,10 +1,11 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { NonNullableFormBuilder, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { firstValueFrom } from "rxjs";
-import { LoginForm} from "@/auth/models/form.model";
-import { LoginTitle } from "@/auth/models/login-title.model";
-import { AuthService } from "@/auth/services/auth.service";
+import {Component, inject, OnInit, signal} from '@angular/core';
+import {NonNullableFormBuilder, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
+import {firstValueFrom} from "rxjs";
+import {LoginForm} from "@/auth/models/form.model";
+import {LoginTitle} from "@/auth/models/login-title.model";
+import {AuthService} from "@/auth/services/auth.service";
+import {LocalKeys, LocalManagerService} from "@/auth/services";
 
 @Component({
   selector: 'app-login-page',
@@ -14,6 +15,7 @@ import { AuthService } from "@/auth/services/auth.service";
 export class LoginPageComponent implements OnInit {
 
   private readonly authService = inject(AuthService);
+  private readonly localManagerService = inject(LocalManagerService);
   private readonly router = inject(Router);
   private readonly fb = inject(NonNullableFormBuilder);
 
@@ -27,6 +29,7 @@ export class LoginPageComponent implements OnInit {
     subtitle: `Let's Connect You To A Job!`,
     oppositeUser: 'an Organization',
     oppositeUrl: '../org',
+    redirectUrl: 'developer'
 
   }
   organization: LoginTitle = {
@@ -34,6 +37,7 @@ export class LoginPageComponent implements OnInit {
     subtitle: `Let's Find You Some Candidates!`,
     oppositeUser: 'a Developer',
     oppositeUrl: '../dev',
+    redirectUrl: 'organization'
   }
 
   actualUser = signal<LoginTitle>(this.developer);
@@ -45,7 +49,11 @@ export class LoginPageComponent implements OnInit {
   async onSubmit() {
     if (this.loginForm.valid) {
       try {
-        await firstValueFrom(this.authService.login(this.loginForm.getRawValue()));
+        await firstValueFrom(this.authService.login(this.loginForm.getRawValue()))
+          .then( response => {
+            this.localManagerService.setElement(LocalKeys.token, response);
+            this.router.navigateByUrl(this.actualUser().redirectUrl); // to do
+          });
       } catch (error) {
         console.error(error);
       }

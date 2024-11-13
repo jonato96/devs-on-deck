@@ -6,6 +6,8 @@ import { City, DeveloperData, DeveloperRegister, State } from "@/auth/models";
 
 import { ValidatorsService } from "@/auth/services/validators.service";
 import { CatalogueService } from "@/auth/services/catalogue.service";
+import {AuthService, LocalKeys, LocalManagerService} from "@/auth/services";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -18,6 +20,9 @@ export class RegisterDevPageComponent implements OnInit {
   private readonly fb = inject(NonNullableFormBuilder);
   private readonly catalogueService = inject(CatalogueService);
   private readonly validatorService = inject(ValidatorsService);
+  private readonly authService = inject(AuthService);
+  private readonly localManagerService = inject(LocalManagerService);
+  private readonly router = inject(Router);
 
   public states = signal<State[]>([]);
   public cities = signal<City[]>([]);
@@ -51,7 +56,11 @@ export class RegisterDevPageComponent implements OnInit {
   onRegister(): void {
     if (this.registerDeveloperForm.valid) {
       const registerDeveloperRequest: DeveloperData = this.registerDeveloperForm.getRawValue();
-      console.log(registerDeveloperRequest);
+      this.authService.registerDeveloper(registerDeveloperRequest)
+        .subscribe( token => {
+          this.localManagerService.setElement(LocalKeys.token, token);
+          void this.router.navigateByUrl('developer')
+        });
     }
     this.registerDeveloperForm.markAllAsTouched();
   }
