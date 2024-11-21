@@ -6,12 +6,14 @@ import { InputTextModule } from "primeng/inputtext";
 
 import { CustomTopBarComponent } from './ui/components/custom-top-bar/custom-top-bar.component';
 import { CustomControlComponent } from './ui/components/custom-control/custom-control.component';
+import { CustomLoggedTopBarComponent } from './ui/components/custom-logged-top-bar/custom-logged-top-bar.component';
 
 
 @NgModule({
   declarations: [
     CustomTopBarComponent,
-    CustomControlComponent
+    CustomControlComponent,
+    CustomLoggedTopBarComponent
   ],
   imports: [
       CommonModule,
