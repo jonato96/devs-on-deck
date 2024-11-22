@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-custom-logged-top-bar',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './custom-logged-top-bar.component.scss'
 })
 export class CustomLoggedTopBarComponent {
+
+  title = input.required<string>();
 
 }
