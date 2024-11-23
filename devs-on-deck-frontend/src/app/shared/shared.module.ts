@@ -22,9 +22,10 @@ import { CustomLoggedTopBarComponent } from './ui/components/custom-logged-top-b
       InputTextModule,
       ReactiveFormsModule
   ],
-  exports: [
-    CustomTopBarComponent,
-    CustomControlComponent
-  ]
+    exports: [
+        CustomTopBarComponent,
+        CustomControlComponent,
+        CustomLoggedTopBarComponent
+    ]
 })
 export class SharedModule { }

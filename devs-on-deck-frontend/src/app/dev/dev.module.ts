@@ -7,11 +7,14 @@ import {ProgressBarModule} from "primeng/progressbar";
 import {InputTextModule} from "primeng/inputtext";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {ButtonDirective} from "primeng/button";
+import { LayoutComponent } from './layout/layout.component';
+import {SharedModule} from "@/shared/shared.module";
 
 
 @NgModule({
   declarations: [
-    SkillsComponent
+    SkillsComponent,
+    LayoutComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +22,8 @@ import {ButtonDirective} from "primeng/button";
     ProgressBarModule,
     InputTextModule,
     InputTextareaModule,
-    ButtonDirective
+    ButtonDirective,
+    SharedModule
   ]
 })
 export class DevModule { }

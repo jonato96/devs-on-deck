@@ -7,6 +7,6 @@ import { Component, input } from '@angular/core';
 })
 export class CustomLoggedTopBarComponent {
 
-  title = input.required<string>();
+  title = input<string>();
 
 }
