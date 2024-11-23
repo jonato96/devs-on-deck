@@ -59,7 +59,7 @@ export class RegisterDevPageComponent implements OnInit {
       this.authService.registerDeveloper(registerDeveloperRequest)
         .subscribe( token => {
           this.localManagerService.setElement(LocalKeys.token, token);
-          void this.router.navigateByUrl('developer')
+          void this.router.navigate(['developer','skills']);
         });
     }
     this.registerDeveloperForm.markAllAsTouched();
