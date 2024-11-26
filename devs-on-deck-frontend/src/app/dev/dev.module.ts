@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DevRoutingModule } from './dev-routing.module';
-import { SkillsComponent } from './skills/skills.component';
-import {ProgressBarModule} from "primeng/progressbar";
-import {InputTextModule} from "primeng/inputtext";
-import {InputTextareaModule} from "primeng/inputtextarea";
-import {ButtonDirective} from "primeng/button";
+import { ProgressBarModule } from "primeng/progressbar";
+import { InputTextareaModule } from "primeng/inputtextarea";
+import { InputTextModule } from "primeng/inputtext";
+import { SharedModule } from "@/shared/shared.module";
+
 import { LayoutComponent } from './layout/layout.component';
-import {SharedModule} from "@/shared/shared.module";
+import { SkillsComponent } from './skills/skills.component';
+import { ButtonDirective } from "primeng/button";
 
 
 @NgModule({
