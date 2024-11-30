@@ -20,11 +20,11 @@ public class Framework {
     @Column
     private String name;
 
-    @Column(name="languaje_id", nullable = false)
+    @Column(name="language_id", nullable = false)
     private Long languageId;
 
     @ManyToOne
-    @JoinColumn(name="languaje_id", insertable = false, updatable = false)
+    @JoinColumn(name="language_id", insertable = false, updatable = false)
     private Language language;
 
 }
