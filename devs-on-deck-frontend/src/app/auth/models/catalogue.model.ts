@@ -5,3 +5,7 @@ export interface Catalogue {
 export interface State extends Catalogue {}
 
 export interface City extends Catalogue {}
+
+export interface Languages extends Catalogue {
+  logo: string;
+}

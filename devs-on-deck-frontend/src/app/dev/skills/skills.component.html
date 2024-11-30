@@ -16,26 +16,16 @@
     </div>
     <div class="col-12 lg:col-5">
       <div class="p-card flex justify-content-evenly">
-        <div class="flex flex-column align-items-center text-center">
-          <img src="https://cdn-icons-png.flaticon.com/512/152/152760.png" alt="" class="w-2rem">
-          <span>Java</span>
-        </div>
-        <div class="flex flex-column align-items-center text-center">
-          <img src="https://cdn-icons-png.flaticon.com/512/152/152760.png" alt="" class="w-2rem">
-          <span>Java</span>
-        </div>
-        <div class="flex flex-column align-items-center text-center">
-          <img src="https://cdn-icons-png.flaticon.com/512/152/152760.png" alt="" class="w-2rem">
-          <span>Java</span>
-        </div>
-        <div class="flex flex-column align-items-center text-center">
-          <img src="https://cdn-icons-png.flaticon.com/512/152/152760.png" alt="" class="w-2rem">
-          <span>Java</span>
-        </div>
-        <div class="flex flex-column align-items-center text-center">
-          <img src="https://cdn-icons-png.flaticon.com/512/152/152760.png" alt="" class="w-2rem">
-          <span>Java</span>
-        </div>
+
+        @for (language of languages(); track language.id) {
+
+          <div class="flex flex-column align-items-center text-center">
+            <img [ngSrc]="language.logo" alt="" class="w-2rem">
+            <span>{{ language.name }}</span>
+          </div>
+
+        }
+
       </div>
     </div>
     <div class="col-12 lg:col-7">

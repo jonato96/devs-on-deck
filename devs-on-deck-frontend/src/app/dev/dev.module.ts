@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 import { DevRoutingModule } from './dev-routing.module';
 import { ProgressBarModule } from "primeng/progressbar";
@@ -24,7 +24,8 @@ import { ButtonDirective } from "primeng/button";
     InputTextModule,
     InputTextareaModule,
     ButtonDirective,
-    SharedModule
+    SharedModule,
+    NgOptimizedImage
   ]
 })
 export class DevModule { }
