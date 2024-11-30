@@ -20,6 +20,9 @@ public class Framework {
     @Column
     private String name;
 
+    @Column
+    private String logo;
+
     @Column(name="language_id", nullable = false)
     private Long languageId;
 

@@ -23,4 +23,7 @@ public class Language {
     @Column
     private String name;
 
+    @Column
+    private String logo;
+
 }
