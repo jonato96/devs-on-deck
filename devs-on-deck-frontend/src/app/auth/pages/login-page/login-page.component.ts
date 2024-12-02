@@ -1,11 +1,13 @@
-import {Component, inject, OnInit, signal} from '@angular/core';
-import {NonNullableFormBuilder, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {firstValueFrom} from "rxjs";
-import {LoginForm} from "@/auth/models/form.model";
-import {LoginTitle} from "@/auth/models/login-title.model";
-import {AuthService} from "@/auth/services/auth.service";
-import {LocalKeys, LocalManagerService} from "@/auth/services";
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { NonNullableFormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { firstValueFrom } from "rxjs";
+
+import { AuthService } from "@/auth/services/auth.service";
+import { LocalKeys, LocalManagerService } from "@/auth/services";
+
+import { LoginForm } from "@/auth/models/form.model";
+import { LoginTitle } from "@/auth/models/login-title.model";
 
 @Component({
   selector: 'app-login-page',

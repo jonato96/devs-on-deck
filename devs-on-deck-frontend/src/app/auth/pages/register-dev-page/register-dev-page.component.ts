@@ -1,13 +1,13 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from "@angular/forms";
 import { DropdownChangeEvent } from "primeng/dropdown";
+import { Router } from "@angular/router";
 
 import { City, DeveloperData, DeveloperRegister, State } from "@/auth/models";
 
 import { ValidatorsService } from "@/auth/services/validators.service";
 import { CatalogueService } from "@/auth/services/catalogue.service";
-import {AuthService, LocalKeys, LocalManagerService} from "@/auth/services";
-import {Router} from "@angular/router";
+import { AuthService, LocalKeys, LocalManagerService } from "@/auth/services";
 
 
 @Component({
