@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class FrameworkResponseDto {
     Long id;
     String name;
+    String logo;
 }

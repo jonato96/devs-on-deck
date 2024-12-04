@@ -24,6 +24,7 @@ public class LanguageServiceImpl implements LanguagesService {
         return languages.stream().map( language -> LanguageResponseDto.builder()
                 .id(language.getId())
                 .name(language.getName())
+                .logo(language.getLogo())
                 .build())
                 .toList();
     }
@@ -34,6 +35,7 @@ public class LanguageServiceImpl implements LanguagesService {
         return frameworks.stream().map( framework -> FrameworkResponseDto.builder()
                         .id(framework.getId())
                         .name(framework.getName())
+                        .logo(framework.getLogo())
                         .build())
                 .toList();
     }

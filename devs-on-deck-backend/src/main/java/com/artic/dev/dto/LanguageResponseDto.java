@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class LanguageResponseDto {
     Long id;
     String name;
+    String logo;
 }
