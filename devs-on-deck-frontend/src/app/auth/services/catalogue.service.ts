@@ -38,7 +38,7 @@ export class CatalogueService {
    */
 
   findLanguages(): Observable<Languages[]> {
-    return this.http.get<ApiResponse>(`${this.baseUrl}/${this.stateController}`).pipe(
+    return this.http.get<ApiResponse>(`${this.baseUrl}/${this.languagesController}`).pipe(
       map( languagesAdapter )
     );
   }

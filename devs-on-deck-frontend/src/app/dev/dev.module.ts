@@ -9,7 +9,8 @@ import { SharedModule } from "@/shared/shared.module";
 
 import { LayoutComponent } from './layout/layout.component';
 import { SkillsComponent } from './skills/skills.component';
-import { ButtonDirective } from "primeng/button";
+import {Button, ButtonDirective} from "primeng/button";
+import {ScrollPanelModule} from "primeng/scrollpanel";
 
 
 @NgModule({
@@ -25,7 +26,9 @@ import { ButtonDirective } from "primeng/button";
     InputTextareaModule,
     ButtonDirective,
     SharedModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    Button,
+    ScrollPanelModule
   ]
 })
 export class DevModule { }
