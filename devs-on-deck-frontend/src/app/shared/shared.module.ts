@@ -16,16 +16,16 @@ import { CustomLoggedTopBarComponent } from './ui/components/custom-logged-top-b
     CustomLoggedTopBarComponent
   ],
   imports: [
-      CommonModule,
-      RouterLink,
-      FormsModule,
-      InputTextModule,
-      ReactiveFormsModule
+    CommonModule,
+    RouterLink,
+    FormsModule,
+    InputTextModule,
+    ReactiveFormsModule
   ],
-    exports: [
-        CustomTopBarComponent,
-        CustomControlComponent,
-        CustomLoggedTopBarComponent
-    ]
+  exports: [
+    CustomTopBarComponent,
+    CustomControlComponent,
+    CustomLoggedTopBarComponent
+  ]
 })
 export class SharedModule { }
