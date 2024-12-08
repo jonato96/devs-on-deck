@@ -2,8 +2,8 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { map, Observable } from "rxjs";
 
-import {ApiResponse, City, Languages, State} from "@/auth/models";
-import {cityAdapter, languagesAdapter, stateAdapter} from "@/auth/adapters/auth.adapter";
+import {ApiResponse, City, Framework, Languages, State} from "@/auth/models";
+import {cityAdapter, frameworksAdapter, languagesAdapter, stateAdapter} from "@/auth/adapters/auth.adapter";
 
 
 @Injectable({
@@ -14,6 +14,7 @@ export class CatalogueService {
   private readonly baseUrl: string = 'http://localhost:8080/devs';
   private readonly stateController: string = 'state';
   private readonly languagesController: string = 'languages';
+  private readonly frameworkController: string = 'frameworks';
 
   private http = inject(HttpClient);
 
@@ -41,6 +42,13 @@ export class CatalogueService {
     return this.http.get<ApiResponse>(`${this.baseUrl}/${this.languagesController}`).pipe(
       map( languagesAdapter )
     );
+  }
+
+  findFrameworks(languagesIdList: [number]): Observable<Framework[]> {
+    return this.http.post<ApiResponse>(`${this.baseUrl}/${this.frameworkController}`, languagesIdList)
+      .pipe(
+        map( frameworksAdapter )
+      );
   }
 
 }
