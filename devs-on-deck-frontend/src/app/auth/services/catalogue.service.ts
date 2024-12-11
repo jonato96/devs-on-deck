@@ -2,8 +2,8 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { map, Observable } from "rxjs";
 
-import {ApiResponse, City, Framework, Languages, State} from "@/auth/models";
-import {cityAdapter, frameworksAdapter, languagesAdapter, stateAdapter} from "@/auth/adapters/auth.adapter";
+import { ApiResponse, City, Framework, Languages, State } from "@/auth/models";
+import { cityAdapter, frameworksAdapter, languagesAdapter, stateAdapter } from "@/auth/adapters/auth.adapter";
 
 
 @Injectable({
