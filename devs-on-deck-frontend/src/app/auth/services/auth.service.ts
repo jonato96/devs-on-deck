@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { map, Observable } from "rxjs";
-import {Auth, AuthData, DeveloperData, LoginResponse, OrganizationData} from "@/auth/models";
+import { Auth, AuthData, DeveloperData, LoginResponse, OrganizationData } from "@/auth/models";
 import { AuthAdapter } from "@/auth/adapters/auth.adapter";
 
 @Injectable({
