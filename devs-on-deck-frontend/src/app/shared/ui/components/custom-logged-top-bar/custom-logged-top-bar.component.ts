@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { LocalManagerService } from "@/auth/services";
 
 @Component({
   selector: 'app-custom-logged-top-bar',
@@ -7,6 +8,11 @@ import { Component, input } from '@angular/core';
 })
 export class CustomLoggedTopBarComponent {
 
+  private readonly managerService = inject(LocalManagerService);
   title = input<string>();
+
+  logout() {
+    this.managerService.clearStorage();
+  }
 
 }
