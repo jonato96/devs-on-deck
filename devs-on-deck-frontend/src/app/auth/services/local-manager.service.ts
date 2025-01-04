@@ -24,6 +24,6 @@ export class LocalManagerService {
     localStorage.clear();
   }
 
-  //TODO recognize when user login is dev or org
+  // TODO recognize when user login is dev or org
 
 }
