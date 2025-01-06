@@ -1,4 +1,4 @@
-import {Injectable, signal} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 export enum LocalKeys {
   token = "token",
@@ -8,9 +8,6 @@ export enum LocalKeys {
   providedIn: 'root'
 })
 export class LocalManagerService {
-
-  private isDev = signal<boolean>(false);
-  private isOrg = signal<boolean>(false);
 
   getElement(key: LocalKeys): string | null {
     return localStorage.getItem(key);
