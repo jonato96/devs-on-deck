@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { map, Observable } from "rxjs";
 import { Auth, AuthData, DeveloperData, LoginResponse, OrganizationData } from "@/auth/models";
-import { AuthAdapter } from "@/auth/adapters/auth.adapter";
+import { AuthAdapter, RegisterAdapter } from "@/auth/adapters/auth.adapter";
 
 @Injectable({
   providedIn: 'root'
@@ -23,14 +23,14 @@ export class AuthService {
   registerDeveloper(request: DeveloperData): Observable<string> {
     return this.http.post<Auth>(`${this.baseUrl}/${this.authController}/register/dev`, request)
       .pipe(
-        map(AuthAdapter)
+        map(RegisterAdapter)
       );
   }
 
   registerOrganization(request: OrganizationData): Observable<string> {
-    return this.http.post<Auth>(`${this.baseUrl}/${this.authController}/org`, request)
+    return this.http.post<Auth>(`${this.baseUrl}/${this.authController}/register/org`, request)
       .pipe(
-        map(AuthAdapter)
+        map(RegisterAdapter)
       );
   }
 
