@@ -37,6 +37,7 @@ public class AuthServiceImpl implements AuthService {
         UserDetails user = personRepository.findByEmail(request.getEmail()).orElseThrow();
         String token = jwtService.getToken(user);
         return AuthResponseDto.builder()
+                .user(user.getUsername())
                 .token(token)
                 .build();
     }
@@ -54,6 +55,7 @@ public class AuthServiceImpl implements AuthService {
                 .build();
         developerRepository.save(developer);
         return AuthResponseDto.builder()
+                .user(developer.getEmail())
                 .token(jwtService.getToken(developer))
                 .build();
     }
@@ -70,6 +72,7 @@ public class AuthServiceImpl implements AuthService {
                 .build();
         organizationRepository.save(organization);
         return AuthResponseDto.builder()
+                .user(organization.getUsername())
                 .token(jwtService.getToken(organization))
                 .build();
     }
