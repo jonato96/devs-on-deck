@@ -1,5 +1,6 @@
 interface TokenContainer {
   token: string;
+  user: string
 }
 
 export interface LoginResponse extends TokenContainer { }

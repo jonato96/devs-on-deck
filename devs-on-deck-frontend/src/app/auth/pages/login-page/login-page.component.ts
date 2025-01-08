@@ -53,7 +53,7 @@ export class LoginPageComponent implements OnInit {
       try {
         await firstValueFrom(this.authService.login(this.loginForm.getRawValue()))
           .then( response => {
-            this.localManagerService.setElement(LocalKeys.token, response);
+            this.localManagerService.setElement(LocalKeys.token, response.token);
             this.router.navigateByUrl(this.actualUser().redirectUrl); // to do
           });
       } catch (error) {
