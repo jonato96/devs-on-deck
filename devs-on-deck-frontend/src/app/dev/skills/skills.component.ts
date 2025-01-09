@@ -33,4 +33,8 @@ export class SkillsComponent implements OnInit {
     });
   }
 
+  findFrameworks() {
+    // TODO consume framework resource
+  }
+
 }
