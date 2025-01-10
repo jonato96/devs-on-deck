@@ -33,8 +33,10 @@ export class SkillsComponent implements OnInit {
     });
   }
 
-  findFrameworks() {
-    // TODO consume framework resource
+  findFrameworks(): void {
+    const languageIdList = this.selectedLanguages().map(language => language.id);
+    this.catalogService.findFrameworks(languageIdList)
+      .subscribe();
   }
 
 }

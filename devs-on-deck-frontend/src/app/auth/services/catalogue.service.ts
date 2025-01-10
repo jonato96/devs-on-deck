@@ -44,7 +44,7 @@ export class CatalogueService {
     );
   }
 
-  findFrameworks(languagesIdList: [number]): Observable<Framework[]> {
+  findFrameworks(languagesIdList: number[]): Observable<Framework[]> {
     return this.http.post<ApiResponse>(`${this.baseUrl}/${this.frameworkController}`, languagesIdList)
       .pipe(
         map( frameworksAdapter )
