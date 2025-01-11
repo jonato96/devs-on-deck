@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { CatalogueService } from "@/auth/services";
-import { Languages } from "@/auth/models";
+import { Framework, Languages } from "@/auth/models";
 
 @Component({
   selector: 'app-skills',
@@ -13,6 +13,9 @@ export class SkillsComponent implements OnInit {
 
   languages = signal<Languages[]>([]);
   selectedLanguages = signal<Languages[]>([]);
+
+  frameworks = signal<Framework[]>([]);
+  selectedFrameworks = signal<Framework[]>([]);
 
   ngOnInit(): void {
     this.catalogService.findLanguages()
@@ -36,7 +39,7 @@ export class SkillsComponent implements OnInit {
   findFrameworks(): void {
     const languageIdList = this.selectedLanguages().map(language => language.id);
     this.catalogService.findFrameworks(languageIdList)
-      .subscribe();
+      .subscribe( f => this.frameworks.set(f) );
   }
 
 }
