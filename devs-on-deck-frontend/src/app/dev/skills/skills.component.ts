@@ -24,7 +24,7 @@ export class SkillsComponent implements OnInit {
       );
   }
 
-  addLanguage(language: Languages) {
+  addLanguage(language: Languages): void {
     this.selectedLanguages.update((currentItems) => {
 
       const exists = currentItems.some((item) => item.id === language.id);
@@ -40,6 +40,18 @@ export class SkillsComponent implements OnInit {
     const languageIdList = this.selectedLanguages().map(language => language.id);
     this.catalogService.findFrameworks(languageIdList)
       .subscribe( f => this.frameworks.set(f) );
+  }
+
+  addFramework(framework: Framework): void {
+    this.selectedFrameworks.update((currentItems) => {
+
+      const exists = currentItems.some((item) => item.id === framework.id);
+      if (exists) return currentItems;
+
+      if (currentItems.length < 5) return [...currentItems, framework];
+
+      return [...currentItems.slice(1), framework];
+    });
   }
 
 }
