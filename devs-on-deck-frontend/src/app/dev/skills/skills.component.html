@@ -8,51 +8,55 @@
     </div>
   </div>
 
-  <div class="flex flex-wrap p-2">
-    <div class="col-12 lg:col-7 p-3">
-      <label class="text-4xl">Pick Your Top 5 Languages</label>
-    </div>
-    <div class="col-12 lg:col-5">
-      <div class="p-card p-1 flex justify-content-evenly h-full">
+  <div>
 
-        @for (selectedLanguage of selectedLanguages(); track selectedLanguage.id) {
-
-          <div class="flex flex-column align-items-center text-center">
-            <img [src]="selectedLanguage.logo" alt="" class="w-2rem">
-            <span>{{ selectedLanguage.name }}</span>
-          </div>
-
-        }
-
+    <div class="flex flex-wrap p-2">
+      <div class="col-12 lg:col-7 p-3">
+        <label class="text-4xl">Pick Your Top 5 Languages</label>
       </div>
-    </div>
-    <div class="col-12 lg:col-7">
+      <div class="col-12 lg:col-5">
+        <div class="p-card p-1 flex justify-content-evenly h-full">
+
+          @for (selectedLanguage of selectedLanguages(); track selectedLanguage.id) {
+
+            <div class="flex flex-column align-items-center text-center">
+              <img [src]="selectedLanguage.logo" alt="" class="w-2rem">
+              <span>{{ selectedLanguage.name }}</span>
+            </div>
+
+          }
+
+        </div>
+      </div>
+      <div class="col-12 lg:col-7">
         <p-scrollPanel [style]="{ width: '100%', height: '200px' }">
           <div class="m-2 flex flex-wrap bg-gray-100">
-          @for (language of languages(); track language.id) {
-            <p-button text class="p-2" (onClick)="addLanguage(language)">
-              <div class="flex flex-column align-items-center text-center w-4rem">
-                <img [src]="language.logo" alt="" class="w-2rem mb-1">
-                <span class="text-sm text-black-alpha-90" >{{ language.name | slice:0:5 }}</span>
-              </div>
-            </p-button>
-          }
+            @for (language of languages(); track language.id) {
+              <p-button text class="p-2" (onClick)="addLanguage(language)">
+                <div class="flex flex-column align-items-center text-center w-4rem">
+                  <img [src]="language.logo" alt="" class="w-2rem mb-1">
+                  <span class="text-sm text-black-alpha-90" >{{ language.name | slice:0:5 }}</span>
+                </div>
+              </p-button>
+            }
           </div>
         </p-scrollPanel>
-    </div>
-    <div class="col-12 lg:col-5">
-      <div class="flex flex-column">
-        <span class="text-2xl">Short Bio</span>
-        <textarea pInputTextarea rows="6" autoResize="true">
+      </div>
+      <div class="col-12 lg:col-5">
+        <div class="flex flex-column">
+          <span class="text-2xl">Short Bio</span>
+          <textarea pInputTextarea rows="6" autoResize="true">
         </textarea>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="flex p-3 justify-content-center lg:justify-content-end">
-      <button pButton (click)="findFrameworks()">
-        Next Step: Frameworks and Libraries
-      </button>
+    <div class="flex p-3 justify-content-center lg:justify-content-end">
+        <button pButton (click)="findFrameworks()">
+          Next Step: Frameworks and Libraries
+        </button>
+    </div>
+
   </div>
 
   <div>
