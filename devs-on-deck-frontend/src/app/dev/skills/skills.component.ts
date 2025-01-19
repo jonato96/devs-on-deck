@@ -54,4 +54,8 @@ export class SkillsComponent implements OnInit {
     });
   }
 
+  completeProcess(): void {
+    // TODO complete process logic
+  }
+
 }
