@@ -16,7 +16,7 @@ public class FrameworkServiceImpl implements FrameworkService {
     private final FrameworkRepository repository;
     @Override
     public List<FrameworkResponseDto> findAllByLanguages(List<Long> languageIdList) {
-        List<Framework> frameworks = repository.findByLanguageIdList(languageIdList);
+        List<Framework> frameworks = repository.findByLanguageIdIn(languageIdList);
         return frameworks.stream().map( framework -> FrameworkResponseDto.builder()
                         .id(framework.getId())
                         .name(framework.getName())
