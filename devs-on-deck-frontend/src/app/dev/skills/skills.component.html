@@ -52,7 +52,7 @@
     </div>
 
     <div class="flex p-3 justify-content-center lg:justify-content-end">
-        <button pButton (click)="findFrameworks()">
+        <button pButton (click)="findFrameworks()" [disabled]="selectedLanguages().length === 0">
           Next Step: Frameworks and Libraries
         </button>
     </div>
