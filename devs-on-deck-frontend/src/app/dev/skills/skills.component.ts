@@ -17,7 +17,11 @@ export class SkillsComponent implements OnInit {
   frameworks = signal<Framework[]>([]);
   selectedFrameworks = signal<Framework[]>([]);
 
+  activeLanguageTab = signal<boolean>(false);
+  activeFrameworksTab = signal<boolean>(false);
+
   ngOnInit(): void {
+    this.activeLanguageTab.set(true);
     this.catalogService.findLanguages()
       .subscribe( languages =>
         this.languages.set(languages)
@@ -38,6 +42,8 @@ export class SkillsComponent implements OnInit {
 
   findFrameworks(): void {
     const languageIdList = this.selectedLanguages().map(language => language.id);
+    this.activeLanguageTab.set(false);
+    this.activeFrameworksTab.set(true);
     this.catalogService.findFrameworks(languageIdList)
       .subscribe( f => this.frameworks.set(f) );
   }
