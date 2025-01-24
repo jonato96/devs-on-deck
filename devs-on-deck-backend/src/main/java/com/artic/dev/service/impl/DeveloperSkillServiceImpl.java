@@ -1,5 +1,6 @@
 package com.artic.dev.service.impl;
 
+import com.artic.dev.dto.SkillRequestDto;
 import com.artic.dev.repository.DeveloperLanguageFrameworkRepository;
 import com.artic.dev.service.DeveloperSkillService;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,7 @@ public class DeveloperSkillServiceImpl implements DeveloperSkillService {
     private final DeveloperLanguageFrameworkRepository repository;
 
     @Override
-    public void createSkill() {
+    public void createSkill(SkillRequestDto request) {
 
     }
 }
