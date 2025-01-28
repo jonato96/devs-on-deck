@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SkillRequestDto {
+    Long developerId;
     List<Long> languajeIdList;
     List<Long> frameworkIdList;
 }
