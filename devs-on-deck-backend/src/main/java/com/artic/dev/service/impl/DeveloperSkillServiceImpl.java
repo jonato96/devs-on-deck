@@ -2,6 +2,7 @@ package com.artic.dev.service.impl;
 
 import com.artic.dev.dto.SkillRequestDto;
 import com.artic.dev.entity.Developer;
+import com.artic.dev.exception.DevException;
 import com.artic.dev.repository.DeveloperLanguageFrameworkRepository;
 import com.artic.dev.repository.DeveloperRepository;
 import com.artic.dev.repository.FrameworkRepository;
@@ -22,7 +23,7 @@ public class DeveloperSkillServiceImpl implements DeveloperSkillService {
     @Override
     public void createSkill(SkillRequestDto request) {
 
-        Developer developer = this.developerRepository.findById(request.getDeveloperId()).get();
+        Developer developer = this.developerRepository.findById(request.getDeveloperId()).orElseThrow( () -> new DevException("Developer not found."));
 
     }
 }
