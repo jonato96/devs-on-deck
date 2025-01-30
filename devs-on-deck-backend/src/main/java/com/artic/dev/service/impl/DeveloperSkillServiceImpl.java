@@ -15,15 +15,16 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DeveloperSkillServiceImpl implements DeveloperSkillService {
 
-    private final DeveloperLanguageFrameworkRepository repository;
+    private final DeveloperRepository developerRepository;
     private final LanguagesRepository languagesRepository;
     private final FrameworkRepository frameworkRepository;
-    private final DeveloperRepository developerRepository;
+    private final DeveloperLanguageFrameworkRepository repository;
 
     @Override
     public void createSkill(SkillRequestDto request) {
 
         Developer developer = this.developerRepository.findById(request.getDeveloperId()).orElseThrow( () -> new DevException("Developer not found."));
+
 
     }
 }
