@@ -1,6 +1,8 @@
 package com.artic.dev.controller;
 
+import com.artic.dev.dto.DeveloperRequestDto;
 import com.artic.dev.dto.FrameworkResponseDto;
+import com.artic.dev.dto.SkillRequestDto;
 import com.artic.dev.model.ApiGenericResponse;
 import com.artic.dev.service.FrameworkService;
 import com.artic.dev.util.ApiUtil;
