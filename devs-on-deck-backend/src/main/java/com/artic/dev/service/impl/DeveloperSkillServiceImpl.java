@@ -48,7 +48,7 @@ public class DeveloperSkillServiceImpl implements DeveloperSkillService {
             relationship.setFramework(framework);
             repository.save(relationship);
         }
-        return "Created";
+        return "Developer Skills Created";
 
     }
 }
