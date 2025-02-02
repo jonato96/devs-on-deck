@@ -25,16 +25,16 @@ import { ReactiveFormsModule } from "@angular/forms";
     AuthRegisterLayoutComponent,
     AuthLoginLayoutComponent
   ],
-    imports: [
-        CommonModule,
-        AuthRoutingModule,
-        SharedModule,
-        CheckboxModule,
-        ButtonDirective,
-        Ripple,
-        InputTextModule,
-        DropdownModule,
-        ReactiveFormsModule
-    ]
+  imports: [
+    CommonModule,
+    AuthRoutingModule,
+    SharedModule,
+    CheckboxModule,
+    ButtonDirective,
+    Ripple,
+    InputTextModule,
+    DropdownModule,
+    ReactiveFormsModule
+  ]
 })
 export class AuthModule { }
