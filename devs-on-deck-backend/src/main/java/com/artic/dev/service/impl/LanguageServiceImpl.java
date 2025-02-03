@@ -9,6 +9,7 @@ import com.artic.dev.repository.LanguagesRepository;
 import com.artic.dev.service.LanguagesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,6 +19,8 @@ public class LanguageServiceImpl implements LanguagesService {
 
     private final LanguagesRepository repository;
     private final FrameworkRepository frameworkRepository;
+
+    @Transactional(readOnly = true)
     @Override
     public List<LanguageResponseDto> findAll() {
         List<Language> languages = repository.findAll();
@@ -29,6 +32,7 @@ public class LanguageServiceImpl implements LanguagesService {
                 .toList();
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<FrameworkResponseDto> findFrameworkBy(Long id) {
         List<Framework> frameworks = frameworkRepository.findByLanguageId(id);
