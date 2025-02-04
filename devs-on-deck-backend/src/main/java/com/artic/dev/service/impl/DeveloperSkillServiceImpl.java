@@ -34,6 +34,10 @@ public class DeveloperSkillServiceImpl implements DeveloperSkillService {
         Developer developer = this.developerRepository.findById(request.getDeveloperId())
                 .orElseThrow( () -> new DevException("Developer not found."));
 
+        if( request.getSkills().isEmpty() ) {
+            throw new DevException("No skills present.");
+        }
+
         for( SkillDto skill : request.getSkills()) {
             Language language = languagesRepository.findById(skill.getLanguageId())
                     .orElseThrow( () -> new DevException("Language nor found"));
