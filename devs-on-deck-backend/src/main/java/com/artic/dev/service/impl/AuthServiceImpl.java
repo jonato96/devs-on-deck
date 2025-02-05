@@ -31,7 +31,7 @@ public class AuthServiceImpl implements AuthService {
     private final AuthenticationManager authenticationManager;
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public AuthResponseDto login(LoginRequestDto request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
         UserDetails user = personRepository.findByEmail(request.getEmail()).orElseThrow();
