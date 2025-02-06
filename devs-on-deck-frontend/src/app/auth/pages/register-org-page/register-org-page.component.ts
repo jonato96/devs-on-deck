@@ -6,6 +6,8 @@ import { OrganizationRegister, OrganizationData, City, State } from "@/auth/mode
 
 import { ValidatorsService } from "@/auth/services/validators.service";
 import { CatalogueService } from "@/auth/services/catalogue.service";
+import {AuthService, LocalKeys, LocalManagerService} from "@/auth/services";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -18,6 +20,9 @@ export class RegisterOrgPageComponent implements OnInit {
   private readonly fb = inject(NonNullableFormBuilder);
   private readonly catalogueService = inject(CatalogueService);
   private readonly validatorService = inject(ValidatorsService);
+  private readonly authService = inject(AuthService);
+  private readonly localManagerService = inject(LocalManagerService);
+  private readonly router = inject(Router);
 
   public states = signal<State[]>([]);
   public cities = signal<City[]>([]);
@@ -50,7 +55,11 @@ export class RegisterOrgPageComponent implements OnInit {
   public onRegister(): void {
     if (this.registerOrganizationForm.valid) {
       const registerOrganizationRequest: OrganizationData = this.registerOrganizationForm.getRawValue();
-      console.log(registerOrganizationRequest);
+      this.authService.registerOrganization(registerOrganizationRequest)
+        .subscribe( token => {
+          this.localManagerService.setElement(LocalKeys.token, token);
+          void this.router.navigate(['org','jobs']);
+        });
     }
     this.registerOrganizationForm.markAllAsTouched();
   }
