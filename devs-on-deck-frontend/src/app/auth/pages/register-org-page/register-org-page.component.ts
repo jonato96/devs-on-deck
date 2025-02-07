@@ -6,8 +6,8 @@ import { OrganizationRegister, OrganizationData, City, State } from "@/auth/mode
 
 import { ValidatorsService } from "@/auth/services/validators.service";
 import { CatalogueService } from "@/auth/services/catalogue.service";
-import {AuthService, LocalKeys, LocalManagerService} from "@/auth/services";
-import {Router} from "@angular/router";
+import { AuthService, LocalKeys, LocalManagerService } from "@/auth/services";
+import { Router } from "@angular/router";
 
 
 @Component({
