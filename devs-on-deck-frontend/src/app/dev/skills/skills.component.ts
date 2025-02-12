@@ -1,6 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { CatalogueService } from "@/auth/services";
 import { Framework, Languages } from "@/auth/models";
+import { BusinessService } from "@/auth/services/business.service";
 
 @Component({
   selector: 'app-skills',
@@ -10,6 +11,7 @@ import { Framework, Languages } from "@/auth/models";
 export class SkillsComponent implements OnInit {
 
   private readonly catalogService = inject(CatalogueService);
+  private readonly businessService = inject(BusinessService);
 
   languages = signal<Languages[]>([]);
   selectedLanguages = signal<Languages[]>([]);
