@@ -6,6 +6,8 @@ import com.artic.dev.dto.LoginRequestDto;
 import com.artic.dev.dto.OrganizationRequestDto;
 import com.artic.dev.entity.Developer;
 import com.artic.dev.entity.Organization;
+import com.artic.dev.entity.Person;
+import com.artic.dev.exception.DevException;
 import com.artic.dev.jwt.JwtService;
 import com.artic.dev.repository.DeveloperRepository;
 import com.artic.dev.repository.OrganizationRepository;
@@ -34,10 +36,10 @@ public class AuthServiceImpl implements AuthService {
     @Transactional(readOnly = true)
     public AuthResponseDto login(LoginRequestDto request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
-        UserDetails user = personRepository.findByEmail(request.getEmail()).orElseThrow();
+        Person user = personRepository.findByEmail(request.getEmail()).orElseThrow( () -> new DevException("User not found.") );
         String token = jwtService.getToken(user);
         return AuthResponseDto.builder()
-                .user(user.getUsername())
+                .user(user.getId().toString())
                 .token(token)
                 .build();
     }
